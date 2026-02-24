@@ -188,81 +188,22 @@ h1, h2, h3 {
   font-weight: 500;
 }
 
-.home-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(12, 1fr);
+.home-plain section {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 1.2rem 0;
+  margin-bottom: 0;
 }
 
-.home-hero {
-  grid-column: span 12;
+.home-plain section + section {
+  border-top: 1px solid var(--line);
 }
 
-.home-focus {
-  grid-column: span 7;
-}
-
-.home-links {
-  grid-column: span 5;
-}
-
-.home-consulting {
-  grid-column: span 7;
-}
-
-.home-contact {
-  grid-column: span 5;
-}
-
-.card {
-  background: var(--panel);
-  border-radius: 18px;
-  border: 1px solid #f1f5f9;
-  box-shadow: var(--soft-shadow);
-  padding: 1.6rem 1.7rem 1.35rem;
-}
-
-.card h2, .card h3 {
-  margin-top: 0;
-}
-
-.focus-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 0.8rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.focus-list li {
-  background: #f8fafc;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.35rem 0.7rem;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.link-cards {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.link-card {
-  display: block;
-  padding: 0.9rem 1rem;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: #f8fafc;
-  color: var(--ink);
-}
-
-.link-card span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin-top: 0.2rem;
+.home-inline-links a {
+  margin-right: 0.8rem;
+  white-space: nowrap;
+  font-weight: 600;
 }
 
 .contact-inline a {
@@ -289,11 +230,5 @@ footer {
   }
   nav {
     padding-top: 0.4rem;
-  }
-  .home-focus,
-  .home-links,
-  .home-consulting,
-  .home-contact {
-    grid-column: span 12;
   }
 }
