@@ -1,0 +1,157 @@
+backend:
+  name: github
+  repo: andrellis/good
+  branch: main
+  base_url: https://YOUR-AUTH-PROXY.example.com
+  auth_endpoint: auth
+
+site_url: https://YOUR-DOMAIN.example.com
+display_url: https://YOUR-DOMAIN.example.com
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: home_en
+        label: Home (EN)
+        file: "index.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: home_it
+        label: Home (IT)
+        file: "index.it.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: research_en
+        label: Research (EN)
+        file: "research.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: research_it
+        label: Research (IT)
+        file: "research.it.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: publications_en
+        label: Publications (EN)
+        file: "publications.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: publications_it
+        label: Publications (IT)
+        file: "publications.it.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: policy_en
+        label: Policy & Public Writing (EN)
+        file: "policy-public-writing.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: policy_it
+        label: Policy & Public Writing (IT)
+        file: "policy-public-writing.it.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: conferences_en
+        label: Conferences (EN)
+        file: "conferences.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: conferences_it
+        label: Conferences (IT)
+        file: "conferences.it.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: cv_en
+        label: CV (EN)
+        file: "cv.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: cv_it
+        label: CV (IT)
+        file: "cv.it.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: risc_en
+        label: RISC (EN)
+        file: "risc.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: risc_it
+        label: RISC (IT)
+        file: "risc.it.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
