@@ -1,12 +1,12 @@
 backend:
   name: github
-  repo: andrellis/good
+  repo: andrellis/personal-website
   branch: main
-  base_url: https://YOUR-AUTH-PROXY.example.com
+  base_url: https://sveltia-cms-auth.novellis-andrea.workers.dev
   auth_endpoint: auth
 
-site_url: https://YOUR-DOMAIN.example.com
-display_url: https://YOUR-DOMAIN.example.com
+site_url: https://personal-website-3z3.pages.dev
+display_url: https://personal-website-3z3.pages.dev
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
