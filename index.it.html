@@ -117,26 +117,53 @@
     </footer>
     <script>
       (function () {
-        async function hydrateList(pageUrl, listId, fallbackText) {
+        function findListByHeading(doc, headingText) {
+          const headings = Array.from(doc.querySelectorAll("h2"));
+          const targetHeading = headings.find((h) => h.textContent.trim() === headingText);
+          if (!targetHeading) return null;
+          let next = targetHeading.nextElementSibling;
+          while (next) {
+            if (next.tagName && next.tagName.toLowerCase() === "ul") return next;
+            next = next.nextElementSibling;
+          }
+          return null;
+        }
+        async function hydrateList(pageUrl, listIds, fallbackText, headingText) {
           try {
-            const res = await fetch(pageUrl, { cache: "no-cache" });
+            const url = new URL(pageUrl, window.location.origin).href + "?t=" + Date.now();
+            const res = await fetch(url, { cache: "no-cache", mode: "same-origin", credentials: "same-origin" });
             if (!res.ok) throw new Error("fetch failed");
             const html = await res.text();
             const doc = new DOMParser().parseFromString(html, "text/html");
-            const sourceList = doc.querySelector(listId);
-            const target = document.querySelector(listId === "#published-list" ? "#home-publications" : "#home-public-writing");
-            if (!sourceList || !target) return;
-            const items = Array.from(sourceList.querySelectorAll("li")).slice(0, 3);
+            const target = document.querySelector(listIds.includes("#public-writing-list") ? "#home-public-writing" : "#home-publications");
+            if (!target) return;
+            let items = [];
+            listIds.forEach((id) => {
+              const list = doc.querySelector(id) || findListByHeading(doc, headingText);
+              if (list) {
+                items = items.concat(Array.from(list.querySelectorAll("li")));
+              }
+            });
+            if (!items.length) return;
+            items = items
+              .map((li) => ({
+                year: parseInt(li.getAttribute("data-year") || "0", 10),
+                node: li
+              }))
+              .sort((a, b) => b.year - a.year)
+              .slice(0, 3);
             if (!items.length) return;
             target.innerHTML = "";
-            items.forEach((li) => target.appendChild(li.cloneNode(true)));
+            items.forEach((item) => target.appendChild(item.node.cloneNode(true)));
           } catch (err) {
-            const target = document.querySelector(listId === "#published-list" ? "#home-publications" : "#home-public-writing");
+            const target = document.querySelector(listIds.includes("#public-writing-list") ? "#home-public-writing" : "#home-publications");
             if (target) target.innerHTML = `<li><a href="${pageUrl}">${fallbackText} →</a></li>`;
           }
         }
-        hydrateList("publications.it.html", "#published-list", "Vai alle pubblicazioni");
-        hydrateList("policy-public-writing.it.html", "#public-writing-list", "Vai alla divulgazione");
+        window.addEventListener("load", function () {
+          hydrateList("publications.it.html", ["#accepted-list", "#published-list", "#dissertation-list"], "Vai alle pubblicazioni", "Pubblicazioni selezionate");
+          hydrateList("policy-public-writing.it.html", ["#public-writing-list"], "Vai alla divulgazione", "Policy e divulgazione");
+        });
       })();
     </script>
   </body>
