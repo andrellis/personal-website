@@ -16,10 +16,16 @@
         "@type": "Person",
         "name": "Andrea Novellis",
         "jobTitle": "Political Scientist",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "University of Naples L'Orientale"
-        },
+        "affiliation": [
+          {
+            "@type": "Organization",
+            "name": "University of Naples L'Orientale"
+          },
+          {
+            "@type": "Organization",
+            "name": "Center on the International Politics of Food Security"
+          }
+        ],
         "areaOfSpecialization": [
           "Civil wars",
           "Rebel governance",
@@ -57,7 +63,8 @@
         <a href="index.html" aria-current="page">Home</a>
         <a href="research.html">Research</a>
         <a href="publications.html">Publications</a>
-        <a href="policy-public-writing.html">Policy and public writing</a> <a href="consulting.html">Consulting &amp; advisory</a>
+        <a href="policy-public-writing.html">Policy and public writing</a>
+        <a href="consulting.html">Consulting &amp; advisory</a>
         <a href="conferences.html">Conferences &amp; seminars</a>
         <a href="cv.html">CV</a>
         <a href="risc.html">RISC</a>
@@ -67,7 +74,7 @@
       <section>
         <div class="lang-label">English</div>
         <h2>Welcome</h2>
-        <p>I am a political scientist working on civil wars, rebel governance, and post-conflict political orders, with sustained research on Kurdistan and Sri Lanka. My work combines field research and comparative analysis, and I collaborate with academic and policy actors on conflict analysis, political risk, and early warning in conflict-affected settings. I am a Research Fellow with the ITALIM project (“Italy and the International Politics of Food Security”) at the University of Naples “L’Orientale” and a Non-Resident Fellow at <a href="https://www.civilwarpaths.org/the-centre/people/" target="_blank" rel="noopener">Civil War Paths, University of York</a>. Based between Italy and Sri Lanka.</p>
+        <p>I am a political scientist working on civil wars, rebel governance, and post-conflict political orders, with sustained research on Kurdistan and Sri Lanka. My work combines field research and comparative analysis, and I collaborate with academic and policy actors on conflict analysis, political risk, and early warning in conflict-affected settings. I am a Research Fellow with the ITALIM project (“Italy and the International Politics of Food Security”) at the University of Naples “L’Orientale”, an Associated Member of the <a href="https://scienzepolitichesociali.dip.unipv.it/it/ricerca/gruppi-e-centri-di-ricerca/center-international-politics-food-security-cipfs" target="_blank" rel="noopener">Center on the International Politics of Food Security (CIPFS)</a>, and a Non-Resident Fellow at <a href="https://www.civilwarpaths.org/the-centre/people/" target="_blank" rel="noopener">Civil War Paths, University of York</a>. Based between Italy and Sri Lanka.</p>
       </section>
       <section>
         <h2>Research focus</h2>
@@ -84,7 +91,7 @@
           </div>
           <div class="area-card">
             <h3>Food security &amp; conflict</h3>
-            <p>ITALIM (Italy and the International Politics of Food Security) research on food weaponization and the conflict–food insecurity nexus in the Middle East and North Africa.</p>
+            <p>ITALIM and CIPFS-linked research on food weaponization and the conflict–food insecurity nexus in the Middle East and North Africa.</p>
             <a href="research.html">Go to Research →</a>
           </div>
         </div>
@@ -114,56 +121,12 @@
       &copy; 2026 Andrea Novellis. All rights reserved.
     </footer>
     <script>
-      (function () {
-        function findListByHeading(doc, headingText) {
-          const headings = Array.from(doc.querySelectorAll("h2"));
-          const targetHeading = headings.find((h) => h.textContent.trim() === headingText);
-          if (!targetHeading) return null;
-          let next = targetHeading.nextElementSibling;
-          while (next) {
-            if (next.tagName && next.tagName.toLowerCase() === "ul") return next;
-            next = next.nextElementSibling;
-          }
-          return null;
-        }
-        async function hydrateList(pageUrl, listIds, fallbackText, headingText) {
-          try {
-            const url = new URL(pageUrl, window.location.origin).href + "?t=" + Date.now();
-            const res = await fetch(url, { cache: "no-cache", mode: "same-origin", credentials: "same-origin" });
-            if (!res.ok) throw new Error("fetch failed");
-            const html = await res.text();
-            const doc = new DOMParser().parseFromString(html, "text/html");
-            const target = document.querySelector(listIds.includes("#public-writing-list") ? "#home-public-writing" : "#home-publications");
-            if (!target) return;
-            let items = [];
-            listIds.forEach((id) => {
-              const list = doc.querySelector(id) || findListByHeading(doc, headingText);
-              if (list) {
-                items = items.concat(Array.from(list.querySelectorAll("li")));
-              }
-            });
-            if (!items.length) return;
-            items = items
-              .map((li) => ({
-                year: parseInt(li.getAttribute("data-year") || "0", 10),
-                node: li
-              }))
-              .sort((a, b) => b.year - a.year)
-              .slice(0, 3);
-            if (!items.length) return;
-            target.innerHTML = "";
-            items.forEach((item) => target.appendChild(item.node.cloneNode(true)));
-          } catch (err) {
-            const target = document.querySelector(listIds.includes("#public-writing-list") ? "#home-public-writing" : "#home-publications");
-            if (target) target.innerHTML = `<li><a href="${pageUrl}">${fallbackText} →</a></li>`;
-          }
-        }
-        window.addEventListener("load", function () {
-          hydrateList("publications.html", ["#accepted-list", "#published-list", "#dissertation-list"], "See publications", "Published (selected)");
-          hydrateList("policy-public-writing.html", ["#public-writing-list"], "See public writing", "Policy and public writing");
-        });
-      })();
+      window.recentWorkLists = [
+        { target: "#home-publications", page: "publications.html", lists: ["#accepted-list", "#published-list", "#dissertation-list"], fallback: "See publications" },
+        { target: "#home-public-writing", page: "policy-public-writing.html", lists: ["#public-writing-list"], fallback: "See public writing" }
+      ];
     </script>
+    <script src="assets/recent-work.js"></script>
   </body>
 </html>
 
