@@ -198,6 +198,82 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
+.profile-intro {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.profile-photo {
+  width: 180px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 0.55rem 0.85rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.button-link:hover,
+.button-link:focus-visible {
+  color: #fff;
+  background: var(--accent-strong);
+  text-decoration: none;
+}
+
+.button-link.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.button-link.secondary:hover,
+.button-link.secondary:focus-visible {
+  color: #fff;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  background: #fff;
+  border-top: 3px solid var(--accent);
+  padding: 1.15rem;
+}
+
+.project-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.55rem;
+}
+
+.meta-list {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+:focus-visible {
+  outline: 3px solid #bd8a32;
+  outline-offset: 3px;
+}
+
 .divider {
   border-top: 1px solid var(--line);
   padding-top: 1.2rem;
@@ -236,5 +312,12 @@ footer {
   }
   .areas-grid {
     grid-template-columns: 1fr;
+  }
+  .project-grid,
+  .profile-intro {
+    grid-template-columns: 1fr;
+  }
+  .profile-photo {
+    width: min(220px, 100%);
   }
 }
