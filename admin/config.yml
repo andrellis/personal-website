@@ -5,8 +5,8 @@ backend:
   base_url: https://sveltia-cms-auth.novellis-andrea.workers.dev
   auth_endpoint: auth
 
-site_url: https://personal-website-3z3.pages.dev
-display_url: https://personal-website-3z3.pages.dev
+site_url: https://andreanovellis.com
+display_url: https://andreanovellis.com
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
@@ -28,6 +28,26 @@ collections:
       - name: home_it
         label: Home (IT)
         file: "index.it.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: about_en
+        label: About (EN)
+        file: "about.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: about_it
+        label: About (IT)
+        file: "about.it.html"
         format: raw
         fields:
           - label: HTML
@@ -68,6 +88,26 @@ collections:
       - name: publications_it
         label: Publications (IT)
         file: "publications.it.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: consulting_en
+        label: Consulting (EN)
+        file: "consulting.html"
+        format: raw
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_language: html
+            output_code_only: true
+      - name: consulting_it
+        label: Consulting (IT)
+        file: "consulting.it.html"
         format: raw
         fields:
           - label: HTML
