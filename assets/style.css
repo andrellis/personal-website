@@ -220,14 +220,16 @@ h1, h2, h3 {
 .research-index {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
 .research-index a {
   display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
+  align-items: center;
   min-height: 72px;
   padding: 0.9rem 1rem;
   color: var(--ink);
@@ -236,7 +238,7 @@ h1, h2, h3 {
   line-height: 1.35;
 }
 
-.research-index a + a {
+.research-index li + li {
   border-left: 1px solid var(--line);
 }
 
@@ -286,7 +288,7 @@ h1, h2, h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.2rem 0.55rem;
+  gap: 0.2rem 0.35rem;
   margin: 0.9rem 0 0;
 }
 
@@ -306,19 +308,52 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
+.home-intro {
+  margin-bottom: 3rem;
+}
+
 .profile-intro {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 1.6rem;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 3rem;
+  align-items: center;
+}
+
+.profile-copy h2 {
+  max-width: 620px;
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.85rem, 1.55rem + 1vw, 2.35rem);
+}
+
+.profile-kicker {
+  margin: 0 0 0.8rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.profile-summary {
+  max-width: 620px;
+  margin: 0;
+  font-size: 1.05rem;
 }
 
 .profile-photo {
-  width: 180px;
-  aspect-ratio: 1;
+  width: 220px;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.55rem 0;
+  font-weight: 600;
 }
 
 .button-row {
@@ -494,7 +529,7 @@ footer {
     min-height: 52px;
     padding: 0.7rem 0;
   }
-  .research-index a + a {
+  .research-index li + li {
     border-left: 0;
     border-top: 1px solid var(--line);
   }
@@ -504,6 +539,10 @@ footer {
     padding: 1.1rem 0;
   }
   .profile-photo {
-    width: min(170px, 100%);
+    width: min(165px, 100%);
+    order: -1;
+  }
+  .profile-intro {
+    gap: 1.25rem;
   }
 }
