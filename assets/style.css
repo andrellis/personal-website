@@ -81,6 +81,11 @@ main > section + section { border-top: 1px solid var(--line); padding-top: 27px;
 .publication-summary { color: var(--muted); font-size: .94rem; line-height: 1.7; margin-bottom: 6px; }
 .publication-links { display: flex; flex-wrap: wrap; gap: 0 22px; }
 .publication-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: .85rem; }
+.publication-title { color: inherit; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: .14em; }
+.publication-heading { max-width: 980px; }
+.publication-heading > p:first-child { margin-bottom: 12px; font-size: .86rem; }
+.publication-heading h1 { max-width: 920px; }
+.work-details li { padding-block: 4px; }
 .selected-publications .publication-citation { margin-bottom: 0; }
 .publication-list li { padding-bottom: 24px; }
 .publication-list li + li { padding-top: 24px; }

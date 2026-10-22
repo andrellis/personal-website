@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://andreanovellis.com/</loc></url>
-  <url><loc>https://andreanovellis.com/index.it</loc></url>
-  <url><loc>https://andreanovellis.com/about</loc></url>
-  <url><loc>https://andreanovellis.com/about.it</loc></url>
+  <url><loc>https://andreanovellis.com/</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/index.it</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/about</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/about.it</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://andreanovellis.com/research</loc></url>
   <url><loc>https://andreanovellis.com/research.it</loc></url>
-  <url><loc>https://andreanovellis.com/publications</loc></url>
-  <url><loc>https://andreanovellis.com/publications.it</loc></url>
+  <url><loc>https://andreanovellis.com/publications</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/publications.it</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/paradigm-lock-in</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/earning-allocating-providing</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/syria-food-security</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/divided-self</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/programmatic-incompatibility</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/south-asia-report</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/daanes-external-relations</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/kurdish-movement-introduction</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/feminism-pkk</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/alternative-nationalism</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/early-warning-sri-lanka</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://andreanovellis.com/work/dissertation</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://andreanovellis.com/policy-public-writing</loc></url>
   <url><loc>https://andreanovellis.com/policy-public-writing.it</loc></url>
   <url><loc>https://andreanovellis.com/consulting</loc></url>
